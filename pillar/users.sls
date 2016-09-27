@@ -1,3 +1,6 @@
+
+### common Users
+
 users:
   mrx:
     uid: 1280
@@ -11,7 +14,6 @@ users:
     fullname: black hood
     shell: '/bin/bash'
     ssh-keys:
-    
 
   supergirl:
     uid: 1282
@@ -24,3 +26,5 @@ users:
     fullname: bane shmane
     shell: '/bin/bash'
     ssh-keys: 
+      - ssh-rsa AAABBBCCDDEEFFF111111111222222222222233333333333
+      - ecdsa-sha2-nistp256 343LCCCasdfa143234SSSSSetc
