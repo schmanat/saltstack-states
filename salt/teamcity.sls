@@ -1,0 +1,2 @@
+teamcity:
+  service.running
