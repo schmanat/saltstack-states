@@ -11,24 +11,6 @@ salt-call:
     - dayweek: '*'
     - comment: "Added by SaltStack, do not modify"
 
-
-tree: 
-  pkg.installed
-
-git:
-  pkg.installed
-
-wget:
-  pkg.installed
-
-### install Locate command
-mlocate:
-  pkg.installed
-
-### update DB for Locate command
-updatedb:
-  cmd.run
-
 iptables:
   service.dead:
     - enable: False
