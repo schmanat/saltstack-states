@@ -1,5 +1,6 @@
 ##########  STATE  
-#           common users          
+
+# manage company  users
 
 {% for user, args in pillar.get('users',{}).iteritems() %}
 

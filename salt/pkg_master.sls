@@ -3,7 +3,8 @@
 
 # mrxmaster packages
 
-{% for package in [ 'gdmconman',
+{% for package in [ 'gdm',
+                    'conman',
                     'crypto-utils',
                     'expect',
                     'mgetty',
@@ -22,6 +23,6 @@
  %}
 
 {{ package }}:
-  pkg.removed
+  pkg.installed
   
 {% endfor %}

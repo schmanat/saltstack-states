@@ -8,7 +8,7 @@ base:
 
   'mrxmaster':
     - golang
-#    - pkg_master
+    - pkg_master
 
   'mrxartifactory':
     - artifactory
