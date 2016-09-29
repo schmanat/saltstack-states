@@ -2,11 +2,8 @@
 
 
 # common packages
-{% for package in [ 'tree',
-                    'wget',
-                    'git',
-                    'htop' ]
-%}
+
+{% for package in pillar.get('packages') %}
 
 {{ package }}:
   pkg.installed
