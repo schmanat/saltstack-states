@@ -9,6 +9,7 @@ packages:
   - wget
   - git
   - htop
+  - python-pip
   
 {% endif %}
 
