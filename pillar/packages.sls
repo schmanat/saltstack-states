@@ -10,6 +10,7 @@ packages:
   - git
   - htop
   - python-pip
+  - vim-enhanced
   
 {% endif %}
 
