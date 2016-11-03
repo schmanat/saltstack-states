@@ -1,4 +1,4 @@
-#### STATE #####
+#### MRXMASTER STATE #####
 
 
 # mrxmaster packages
@@ -26,3 +26,22 @@
   pkg.installed
   
 {% endfor %}
+
+
+## Cron
+highstate_cron:
+  cron.present:
+    - name: '/usr/bin/salt \* state.highstate'
+    - user: root
+    - minute: '*/30'
+    - hour: '*'
+    - daymonth: '*'
+    - month: '*'
+    - dayweek: '*'
+    - comment: "Added by SaltStack, do not modify"
+
+
+# Include other classes
+include:
+  - linux.golang
+

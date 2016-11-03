@@ -4,6 +4,9 @@
 users:
   mike.reider:
     uid: 2501
+#    gid: 1102
+#    groups:
+#      - root
     fullname: 'mrx'
     shell: /bin/bash
     ssh-keys:

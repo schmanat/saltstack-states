@@ -1,17 +1,11 @@
 #############  SALT TOP
 
+{% set nodename = grains['nodename'] %}
+
 base:
   '*':
     - common
     - packages
     - users
+    - servers.{{ nodename }}
 
-  'mrxmaster':
-    - golang
-    - pkg_master
-
-  'mrxartifactory':
-    - artifactory
-
-  'mrxteamcity':
-    - teamcity
