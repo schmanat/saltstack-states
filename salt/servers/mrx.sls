@@ -3,7 +3,7 @@
 
 # mrxmaster packages
 
-{% for package in [ 'gdm', 'conman' ] %}
+{% for package in [ 'salt', 'python-pip' ] %}
                     # 'crypto-utils',
                     # 'expect',
                     # 'mgetty',

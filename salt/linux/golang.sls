@@ -24,7 +24,7 @@ untar:
     - name: /usr/local
     - source: {{ install_dir }}/go{{ goversion }}.linux-amd64.tar.gz
     - archive_format: tar
-    - if_missing: /usr/local/go
+    - unless: "test -d /usr/local/go"
   
 cleanup tarball:
   cmd.run:
