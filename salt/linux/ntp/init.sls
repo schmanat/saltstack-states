@@ -1,28 +1,20 @@
-# Include :download:`map file <map.jinja>` of OS-specific package names and
-# file paths. Values can be overridden using Pillar.
-{% from "ntp/map.jinja" import ntp with context %}
-
+# NTP CONF
 ntp:
-  pkg.installed:
-    - name: {{ ntp.client }}
-
-{% set ntp_conf_src = salt['pillar.get']('ntp:ntp_conf', 'salt://ntp/ntp.conf') -%}
-
-{% if ntp_conf_src %}
-ntp_conf:
-  file.managed:
-    - name: {{ ntp.ntp_conf }}
-    - template: jinja
-    - source: {{ ntp_conf_src }}
-    - require:
-      - pkg: {{ ntp.client }}
-{% endif %}
-
-{% if ntp.ntp_conf -%}
-ntp_running:
+  pkg.installed: []
   service.running:
-    - name: {{ ntp.service }}
-    - enable: True
+    - name: ntpd
+    - require:
+      - pkg: ntp
     - watch:
-      - file: {{ ntp.ntp_conf }}
-{% endif -%}
+      - file: /etc/ntp.conf
+
+/etc/ntp.conf:
+  file.managed: 
+    - source: salt://ntp/ntp.conf
+    - user: root
+    - group: root
+    - mode: 644
+    - skip_verify: True
+    - require:
+      - pkg: ntp
+

@@ -2,28 +2,34 @@
 
 # Google Go Language
 
-{% set goversion='1.7.1' %}
+{% set goversion='1.9.2' %}
+{% set install_dir='/opt/golang' %}
 
 
-{% if grains.osarch == "x86_64" %}
+{% if (grains.osarch == "x86_64" or grains.osarch == "amd64") %}
+
+"{{ install_dir }}":
+  file.directory:
+    - mode: 755
+    - makedirs: True
 
 get tarball:
   cmd.run:
     - name: 'wget https://storage.googleapis.com/golang/go{{ goversion }}.linux-amd64.tar.gz'
-    - cwd: /root
+    - cwd: {{ install_dir }}
     - unless: "test -d /usr/local/go"
 
 untar:
   archive.extracted:
     - name: /usr/local
-    - source: /root/go{{ goversion }}.linux-amd64.tar.gz
+    - source: {{ install_dir }}/go{{ goversion }}.linux-amd64.tar.gz
     - archive_format: tar
     - if_missing: /usr/local/go
   
 cleanup tarball:
   cmd.run:
-    - name: "rm -f /root/go{{ goversion }}.linux-amd64.tar.gz"
-    - unless: "! test -f /root/go{{ goversion }}.linux-amd64.tar.gz"
+    - name: "rm -f {{ install_dir }}"
+    - unless: "! test -f {{ install_dir }}"
 
 
 ## update Bashrc with paths

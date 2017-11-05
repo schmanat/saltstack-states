@@ -11,6 +11,9 @@ packages:
   - htop
   - python-pip
   - vim-enhanced
-  
+
+{% else %}
+packages:
+  - htop
 {% endif %}
 
