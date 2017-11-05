@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -120,15 +119,3 @@ fi
 
 # generic prompt
 export PS1="[\[\e[31m\]\u\[\e[m\]\[\e[33m\]@\h\[\e[m\]:\W]$ "
-=======
-#if not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias ll='ls -la'
-
-PS1='[\u@\h \W]\$ '
->>>>>>> 39a425b9ec1df890c8f759e2257d1c4ea2d8b8a1
