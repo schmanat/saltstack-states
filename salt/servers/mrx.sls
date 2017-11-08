@@ -1,32 +1,10 @@
-#### MRXMASTER STATE #####
+### server: mrx 
 
-
-# mrxmaster packages
-
-{% for package in [ 'salt', 'python-pip' ] %}
-                    # 'crypto-utils',
-                    # 'expect',
-                    # 'mgetty',
-                    # 'rrdtool',
-                    # 'symlinks',
-                    # 'lsscsi',
-                    # 'libsane-hpaio',
-                    # 'puppet',
-                    # 'augeas-libs',
-                    # 'facter',
-                    # 'libselinux-ruby',
-                    # 'ruby',
-                    # 'ruby-augeas',
-                    # 'ruby-libs',
-                    # 'ruby-shadow' 
-                    
-
-
-{{ package }}:
-  pkg.installed
-  
-{% endfor %}
-
+saltstack_pkgs:
+  pkg.installed:
+    - pkgs:
+      - salt
+      - python-pip
 
 ## Cron
 highstate_cron:
